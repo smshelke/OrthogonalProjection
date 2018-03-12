@@ -1,0 +1,49 @@
+
+import math
+class normofvector:
+   def __init__(self):
+      self.u=[]
+      self.v=[]
+      self.mult=0
+
+   def acceptvector(self):
+      n=int(input("Enter no of Elements for u and v:"))
+      print("Enter u vector Elements")
+      for j in range(0,n):
+         self.u.append(int(input()))
+      print("Enter v vector Elements")
+      for j in range(0,n):
+         self.v.append(int(input()))
+
+   def getnorm(self):
+      u=self.u
+      v=self.v
+      u2=0
+      v2=0
+      sq1=0;sq2=0
+      for i in range(len(u)):
+         u2+=u[i]*u[i]
+         v2+=v[i]*v[i]
+      if(u2!=-1 and v2!=-1):
+         sq1=math.sqrt(u2)
+         sq2=math.sqrt(v2)
+      print("norm of u",sq1)
+      print("norm of v",sq2)
+   def orthoproj(self):
+      u=self.u
+      v=self.v
+      proj=[]
+      v2=0
+      
+      for i in range(len(u)):
+         self.mult+=(u[i]*v[i])
+         v2=v2+v[i]*v[i]
+      a=(self.mult/v2)
+      for i in range(len(v)):
+         proj.append(a*v[i])
+      print(proj)
+
+u=normofvector()
+u.acceptvector()
+u.getnorm()
+u.orthoproj()
